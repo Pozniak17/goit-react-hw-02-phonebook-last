@@ -73,6 +73,7 @@ export class App extends Component {
 
   render() {
     const { name } = this.state;
+    const { number } = this.state;
     const { contacts } = this.state;
 
     return (
@@ -100,6 +101,7 @@ export class App extends Component {
               pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
               title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
               required
+              value={number}
             />
           </FormLabel>
 
@@ -123,3 +125,5 @@ export class App extends Component {
     );
   }
 }
+
+// Зроби один обробник для двох подій)
