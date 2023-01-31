@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/goit-react-module-02-form/static/css/main.b08a9115.css",
-    "main.js": "/goit-react-module-02-form/static/js/main.498087cd.js",
+    "main.js": "/goit-react-module-02-form/static/js/main.f07b6a0b.js",
     "index.html": "/goit-react-module-02-form/index.html",
     "main.b08a9115.css.map": "/goit-react-module-02-form/static/css/main.b08a9115.css.map",
-    "main.498087cd.js.map": "/goit-react-module-02-form/static/js/main.498087cd.js.map"
+    "main.f07b6a0b.js.map": "/goit-react-module-02-form/static/js/main.f07b6a0b.js.map"
   },
   "entrypoints": [
     "static/css/main.b08a9115.css",
-    "static/js/main.498087cd.js"
+    "static/js/main.f07b6a0b.js"
   ]
 }
