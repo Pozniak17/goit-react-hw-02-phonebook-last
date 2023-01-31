@@ -25,6 +25,7 @@ export const FormInput = styled.input`
   height: 20px;
   font-size: 19px;
   font-weight: 500;
+  margin-bottom: 15px;
 `;
 
 export const FormButton = styled.button`

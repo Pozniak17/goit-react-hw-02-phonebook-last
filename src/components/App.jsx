@@ -24,6 +24,7 @@ export class App extends Component {
     ],
 
     name: '',
+    number: '',
   };
 
   // addContact = name => {
@@ -90,6 +91,18 @@ export class App extends Component {
               onChange={this.onChange}
             />
           </FormLabel>
+
+          <FormLabel>
+            Number
+            <FormInput
+              type="tel"
+              name="number"
+              pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+              title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+              required
+            />
+          </FormLabel>
+
           <FormButton type="submit">Add contact</FormButton>
         </Form>
         {/* в проп contacts ми передаємо масив який лежить в state contacts
