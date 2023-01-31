@@ -95,6 +95,7 @@ export class App extends Component {
         {/* в проп contacts ми передаємо масив який лежить в state contacts
          ми створили метод видалення, який фільтрує(якщо ід не сходяться=>показати, якщо сходяться скрити. Ми прокидуємо цей метод deleteContact в ContactList, потім на кнопці передаємо його через onClick в середину якого поміщаємо ід кнопки. При кліку воно буде фільтрувати, і ті ід що в state та ті що на кнопці якщо вони зійдуться, то кнопка не буде показана, а всі в кого не зійшлися будуть показані */}
         {/* <ContactList contacts={contacts} onDeleteContact={this.deleteContact} /> */}
+        <Title>Contacts</Title>
         <ContactList>
           {contacts.map(contact => (
             <ContactItem key={contact.id}>
