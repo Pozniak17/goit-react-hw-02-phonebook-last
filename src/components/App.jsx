@@ -13,6 +13,8 @@ import {
   ContactItem,
   ContactText,
   ContactButton,
+  FilterInput,
+  FilterText,
 } from './ContactList/ContactList';
 
 export class App extends Component {
@@ -23,6 +25,7 @@ export class App extends Component {
       { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
+    filter: '',
     name: '',
     number: '',
   };
@@ -53,10 +56,10 @@ export class App extends Component {
     this.setState({ [name]: value });
   };
 
-  handleSubmit = evt => {
+  handleSubmit = event => {
     const { name, number } = this.state;
 
-    evt.preventDefault();
+    event.preventDefault();
     console.log(this.state);
 
     this.addContact(name, number);
@@ -68,10 +71,25 @@ export class App extends Component {
     this.setState({ name: '', number: '' });
   };
 
+  changeFilter = event => {
+    this.setState({ filter: event.currentTarget.value });
+  };
+
+  getVisibleTodos = () => {
+    const { contacts, filter } = this.state;
+    const normalizedFilter = filter.toLowerCase();
+
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(normalizedFilter)
+    );
+  };
+
   render() {
-    const { name } = this.state;
-    const { number } = this.state;
-    const { contacts } = this.state;
+    const { name, number, filter } = this.state;
+
+    // const visibleTodos = this.state.contacts.filter(contact => contact.name.includes(this.state.filter);
+
+    const visibleTodos = this.getVisibleTodos();
 
     return (
       <div>
@@ -109,8 +127,12 @@ export class App extends Component {
          ми створили метод видалення, який фільтрує(якщо ід не сходяться=>показати, якщо сходяться скрити. Ми прокидуємо цей метод deleteContact в ContactList, потім на кнопці передаємо його через onClick в середину якого поміщаємо ід кнопки. При кліку воно буде фільтрувати, і ті ід що в state та ті що на кнопці якщо вони зійдуться, то кнопка не буде показана, а всі в кого не зійшлися будуть показані */}
         {/* <ContactList contacts={contacts} onDeleteContact={this.deleteContact} /> */}
         <Title>Contacts</Title>
+
+        <FilterText>Find contacts by name</FilterText>
+        <FilterInput value={filter} onChange={this.changeFilter} />
+
         <ContactList>
-          {contacts.map(({ id, name, number }) => (
+          {visibleTodos.map(({ id, name, number }) => (
             <ContactItem key={id}>
               <ContactText>
                 {name}: {number}

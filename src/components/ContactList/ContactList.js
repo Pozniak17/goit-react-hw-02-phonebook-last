@@ -29,11 +29,18 @@ export const FormInput = styled.input`
 `;
 
 export const FormButton = styled.button`
-  /* margin-top: 20px;
+  background-color: navy;
+  color: white;
+
+  & :hover {
+    background-color: orange;
+    color: white;
+    /* margin-top: 20px;
   padding: 4px;
   background-color: #fff;
   border: 1px solid grey;
   border-radius: 4px; */
+  }
 `;
 
 // ul
@@ -81,4 +88,14 @@ export const ContactButton = styled.button`
     background: navy;
     color: white;
   }
+`;
+
+// input-filter
+export const FilterInput = styled.input`
+  display: block;
+  margin: 0 auto;
+`;
+
+export const FilterText = styled.p`
+  text-align: center;
 `;
