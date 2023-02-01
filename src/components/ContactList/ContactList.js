@@ -38,11 +38,12 @@ export const FormButton = styled.button`
 
 // ul
 export const ContactList = styled.ul`
-  width: 800px;
-  margin-top: 15px;
+  width: min-content;
+
   margin-top: 15px;
   margin-left: auto;
   margin-right: auto;
+  padding-bottom: 30px;
   display: flex;
 
   flex-wrap: wrap;
@@ -56,7 +57,7 @@ export const ContactItem = styled.li`
   margin-top: 10px;
   display: flex;
   border: 1px solid black;
-  width: 200px;
+  width: 280px;
   background-color: #bc65ffc9;
   padding: 20px;
   border-radius: 12px;

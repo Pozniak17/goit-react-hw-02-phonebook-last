@@ -18,28 +18,22 @@ import {
 export class App extends Component {
   state = {
     contacts: [
-      { id: 'id-1', name: 'Banana' },
-      { id: 'id-2', name: 'Orange' },
-      { id: 'id-3', name: 'Kiwi' },
+      { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
+      { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
+      { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
+      { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
-
     name: '',
     number: '',
   };
 
-  // addContact = name => {
-  //   console.log(name);
-  //   this.setState(prevState => ({
-  //     contacts: prevState.contacts.push(name),
-  //   }));
-  // };
-
-  addContact = name => {
-    console.log(name);
+  addContact = (name, number) => {
+    console.log(name, number);
 
     const contact = {
       id: nanoid(),
       name,
+      number,
     };
 
     this.setState(prevState => ({
@@ -55,20 +49,23 @@ export class App extends Component {
   };
 
   onChange = event => {
-    this.setState({ name: event.currentTarget.value });
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
   };
 
   handleSubmit = evt => {
+    const { name, number } = this.state;
+
     evt.preventDefault();
     console.log(this.state);
 
-    this.addContact(this.state.name);
+    this.addContact(name, number);
 
     this.reset();
   };
 
   reset = () => {
-    this.setState({ name: '' });
+    this.setState({ name: '', number: '' });
   };
 
   render() {
@@ -102,6 +99,7 @@ export class App extends Component {
               title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
               required
               value={number}
+              onChange={this.onChange}
             />
           </FormLabel>
 
@@ -112,10 +110,12 @@ export class App extends Component {
         {/* <ContactList contacts={contacts} onDeleteContact={this.deleteContact} /> */}
         <Title>Contacts</Title>
         <ContactList>
-          {contacts.map(contact => (
-            <ContactItem key={contact.id}>
-              <ContactText>{contact.name}</ContactText>
-              <ContactButton onClick={() => this.deleteContact(contact.id)}>
+          {contacts.map(({ id, name, number }) => (
+            <ContactItem key={id}>
+              <ContactText>
+                {name}: {number}
+              </ContactText>
+              <ContactButton onClick={() => this.deleteContact(id)}>
                 Delete
               </ContactButton>
             </ContactItem>
