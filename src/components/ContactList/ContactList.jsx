@@ -1,15 +1,14 @@
-// import { Component } from 'react';
+import { List, ContactItem, ContactText, ContactButton } from './ContactList';
 
-// const ContactList = ({ contacts, onDeleteContact }) => (
-//   <ul>
-//     {contacts.map(contact => (
-//       <li key={contact.id}>
-//         <p>{contact.text}</p>
-//         <button onClick={() => onDeleteContact(contact.id)}>Удалить</button>
-//       </li>
-//     ))}
-//   </ul>
-// );
-// export default ContactList;
-
-// class ContactList extends Component {}
+export const ContactList = ({ contacts, onSubmit }) => (
+  <List>
+    {contacts.map(({ id, name, number }) => (
+      <ContactItem key={id}>
+        <ContactText>
+          {name}: {number}
+        </ContactText>
+        <ContactButton onClick={() => onSubmit(id)}>Удалить</ContactButton>
+      </ContactItem>
+    ))}
+  </List>
+);

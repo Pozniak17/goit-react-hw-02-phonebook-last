@@ -1,21 +1,11 @@
-import { nanoid } from 'nanoid';
-
 import { Component } from 'react';
-// import ContactList from './ContactList';
+import { nanoid } from 'nanoid';
+import { ContactForm } from './ContactForm/ContactForm.jsx';
+import { ContactList } from './ContactList/ContactList.jsx';
 
-import {
-  Form,
-  FormLabel,
-  FormInput,
-  FormButton,
-  Title,
-  ContactList,
-  ContactItem,
-  ContactText,
-  ContactButton,
-  FilterInput,
-  FilterText,
-} from './ContactList/ContactList';
+import { MainTitle, ContactTitle } from '../components/styles/GeneralStyles';
+
+import { Filter } from './Filter/Filter.jsx';
 
 export class App extends Component {
   state = {
@@ -26,8 +16,6 @@ export class App extends Component {
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
     filter: '',
-    name: '',
-    number: '',
   };
 
   addContact = (name, number) => {
@@ -51,26 +39,6 @@ export class App extends Component {
     }));
   };
 
-  onChange = event => {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
-  };
-
-  handleSubmit = event => {
-    const { name, number } = this.state;
-
-    event.preventDefault();
-    console.log(this.state);
-
-    this.addContact(name, number);
-
-    this.reset();
-  };
-
-  reset = () => {
-    this.setState({ name: '', number: '' });
-  };
-
   changeFilter = event => {
     this.setState({ filter: event.currentTarget.value });
   };
@@ -85,7 +53,7 @@ export class App extends Component {
   };
 
   render() {
-    const { name, number, filter } = this.state;
+    const { filter } = this.state;
 
     // const visibleTodos = this.state.contacts.filter(contact => contact.name.includes(this.state.filter);
 
@@ -93,59 +61,17 @@ export class App extends Component {
 
     return (
       <div>
-        <Title>Phonebook</Title>
-        <Form onSubmit={this.handleSubmit}>
-          <FormLabel>
-            Name
-            <FormInput
-              type="text"
-              name="name"
-              pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-              title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-              required
-              value={name}
-              onChange={this.onChange}
-            />
-          </FormLabel>
+        <MainTitle>Phonebook</MainTitle>
+        <ContactForm onSubmit={this.addContact} />
+        <ContactTitle>Contacts</ContactTitle>
 
-          <FormLabel>
-            Number
-            <FormInput
-              type="tel"
-              name="number"
-              pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-              title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-              required
-              value={number}
-              onChange={this.onChange}
-            />
-          </FormLabel>
-
-          <FormButton type="submit">Add contact</FormButton>
-        </Form>
         {/* в проп contacts ми передаємо масив який лежить в state contacts
          ми створили метод видалення, який фільтрує(якщо ід не сходяться=>показати, якщо сходяться скрити. Ми прокидуємо цей метод deleteContact в ContactList, потім на кнопці передаємо його через onClick в середину якого поміщаємо ід кнопки. При кліку воно буде фільтрувати, і ті ід що в state та ті що на кнопці якщо вони зійдуться, то кнопка не буде показана, а всі в кого не зійшлися будуть показані */}
-        {/* <ContactList contacts={contacts} onDeleteContact={this.deleteContact} /> */}
-        <Title>Contacts</Title>
-
-        <FilterText>Find contacts by name</FilterText>
-        <FilterInput value={filter} onChange={this.changeFilter} />
-
-        <ContactList>
-          {visibleTodos.map(({ id, name, number }) => (
-            <ContactItem key={id}>
-              <ContactText>
-                {name}: {number}
-              </ContactText>
-              <ContactButton onClick={() => this.deleteContact(id)}>
-                Delete
-              </ContactButton>
-            </ContactItem>
-          ))}
-        </ContactList>
+        {/* <FilterText>Find contacts by name</FilterText>
+        <FilterInput value={visibleTodos} onChange={this.changeFilter} /> */}
+        <Filter value={filter} onChange={this.changeFilter} />
+        <ContactList contacts={visibleTodos} onSubmit={this.deleteContact} />
       </div>
     );
   }
 }
-
-// Зроби один обробник для двох подій)

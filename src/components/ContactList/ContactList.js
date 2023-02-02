@@ -1,50 +1,7 @@
 import styled from 'styled-components';
 
-// Форма
-export const Title = styled.h1`
-  text-align: center;
-`;
-
-export const Form = styled.form`
-  margin: auto;
-  border: 1px solid black;
-  width: 400px;
-  padding: 10px;
-`;
-
-export const FormLabel = styled.label`
-  display: flex;
-  flex-direction: column;
-  font-weight: 500;
-  font-size: 20px;
-  /* padding: 10px; */
-`;
-
-export const FormInput = styled.input`
-  width: 45%;
-  height: 20px;
-  font-size: 19px;
-  font-weight: 500;
-  margin-bottom: 15px;
-`;
-
-export const FormButton = styled.button`
-  background-color: navy;
-  color: white;
-
-  & :hover {
-    background-color: orange;
-    color: white;
-    /* margin-top: 20px;
-  padding: 4px;
-  background-color: #fff;
-  border: 1px solid grey;
-  border-radius: 4px; */
-  }
-`;
-
 // ul
-export const ContactList = styled.ul`
+export const List = styled.ul`
   width: min-content;
 
   margin-top: 15px;
@@ -65,7 +22,7 @@ export const ContactItem = styled.li`
   display: flex;
   border: 1px solid black;
   width: 280px;
-  background-color: #bc65ffc9;
+  background-color: steelblue;
   padding: 20px;
   border-radius: 12px;
   justify-content: space-between;
@@ -73,9 +30,7 @@ export const ContactItem = styled.li`
 `;
 
 // p
-export const ContactText = styled.p`
-  /* margin-right: 15px; */
-`;
+export const ContactText = styled.p``;
 
 export const ContactButton = styled.button`
   padding: 5px 10px 5px 10px;
@@ -88,14 +43,4 @@ export const ContactButton = styled.button`
     background: navy;
     color: white;
   }
-`;
-
-// input-filter
-export const FilterInput = styled.input`
-  display: block;
-  margin: 0 auto;
-`;
-
-export const FilterText = styled.p`
-  text-align: center;
 `;
