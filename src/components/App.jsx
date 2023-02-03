@@ -70,10 +70,6 @@ export class App extends Component {
         <ContactForm onSubmit={this.addContact} />
         <ContactTitle>Contacts</ContactTitle>
 
-        {/* в проп contacts ми передаємо масив який лежить в state contacts
-         ми створили метод видалення, який фільтрує(якщо ід не сходяться=>показати, якщо сходяться скрити. Ми прокидуємо цей метод deleteContact в ContactList, потім на кнопці передаємо його через onClick в середину якого поміщаємо ід кнопки. При кліку воно буде фільтрувати, і ті ід що в state та ті що на кнопці якщо вони зійдуться, то кнопка не буде показана, а всі в кого не зійшлися будуть показані */}
-        {/* <FilterText>Find contacts by name</FilterText>
-        <FilterInput value={visibleTodos} onChange={this.changeFilter} /> */}
         <Filter value={filter} onChange={this.changeFilter} />
         <ContactList contacts={visibleTodos} onSubmit={this.deleteContact} />
       </div>
