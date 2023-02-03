@@ -27,9 +27,14 @@ export class App extends Component {
       number,
     };
 
-    this.setState(prevState => ({
-      contacts: [contact, ...prevState.contacts],
-    }));
+    this.setState(prevState => {
+      if (prevState.contacts.some(contact => contact.name === name)) {
+        return alert(`${contact.name} is already in contacts`);
+      }
+      return {
+        contacts: [contact, ...prevState.contacts],
+      };
+    });
   };
 
   // тут ми беремо вибраний id тудушки яку треба видалити і показуємо всі, в яких id не сходиться.
