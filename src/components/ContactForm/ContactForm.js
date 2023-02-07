@@ -31,7 +31,7 @@ export const FormButton = styled.button`
   /* color: white; */
   padding: 10px;
   border-radius: 8px;
-  border: 1px solid navy;
+  border: 1px solid black;
   cursor: pointer;
 
   :hover {
