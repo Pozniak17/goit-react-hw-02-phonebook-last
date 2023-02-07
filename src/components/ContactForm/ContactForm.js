@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Form = styled.form`
   border-radius: 5px;
-  background-color: goldenrod;
+  background-color: #d1c6d7;
   margin: auto;
   border: 1px solid black;
   width: 400px;
@@ -26,16 +26,16 @@ export const FormInput = styled.input`
 `;
 
 export const FormButton = styled.button`
-  background-color: navy;
-  color: white;
+  font-weight: 700;
+  /* background-color: navy; */
+  /* color: white; */
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid navy;
+  cursor: pointer;
 
-  & :hover {
-    background-color: orange;
+  :hover {
+    background-color: navy;
     color: white;
-    /* margin-top: 20px;
-  padding: 4px;
-  background-color: #fff;
-  border: 1px solid grey;
-  border-radius: 4px; */
   }
 `;

@@ -22,7 +22,7 @@ export const ContactItem = styled.li`
   display: flex;
   border: 1px solid black;
   width: 280px;
-  background-color: steelblue;
+  background-color: #b9b2be;
   padding: 20px;
   border-radius: 12px;
   justify-content: space-between;
@@ -33,9 +33,11 @@ export const ContactItem = styled.li`
 export const ContactText = styled.p``;
 
 export const ContactButton = styled.button`
-  padding: 5px 10px 5px 10px;
+  font-weight: 600;
+  padding: 8px 15px 8px 15px;
   border-radius: 10px;
   border: gray;
+  border: 1px solid black;
 
   cursor: pointer;
 

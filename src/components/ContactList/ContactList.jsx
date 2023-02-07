@@ -7,7 +7,7 @@ export const ContactList = ({ contacts, onSubmit }) => (
         <ContactText>
           {name}: {number}
         </ContactText>
-        <ContactButton onClick={() => onSubmit(id)}>Удалить</ContactButton>
+        <ContactButton onClick={() => onSubmit(id)}>Delete</ContactButton>
       </ContactItem>
     ))}
   </List>
