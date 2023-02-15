@@ -12,3 +12,13 @@ export const ContactList = ({ contacts, onSubmit }) => (
     ))}
   </List>
 );
+
+ContactList.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string,
+      number: PropTypes.string,
+    })
+  ),
+};

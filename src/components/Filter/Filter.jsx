@@ -6,3 +6,7 @@ export const Filter = ({ value, onChange }) => (
     <FilterInput type="text" value={value} onChange={onChange} />
   </FilterLabel>
 );
+
+Filter.propTypes = {
+  value: PropTypes.string,
+};
